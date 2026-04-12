@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "926110055757",
+    "project_id": "finance-pro-manager-bhara",
+    "storage_bucket": "finance-pro-manager-bhara.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:926110055757:android:0b8ec9ddc8259fd8fe4b04",
+        "android_client_info": {
+          "package_name": "com.example.bankprogg"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALBY-lwBWh42zBpr9RXQ7N-T5LPrZ4qbo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:926110055757:android:c315a2bfa13b4ecefe4b04",
+        "android_client_info": {
+          "package_name": "com.financeapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALBY-lwBWh42zBpr9RXQ7N-T5LPrZ4qbo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

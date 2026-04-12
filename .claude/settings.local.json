@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find S:app_devappBankProggappsrcmainjava -type f -name *.java -o -name *.kt)",
+      "Bash(find S:app_devappBankProggappsrcmainreslayout -type f -name *.xml)",
+      "Bash(claude mcp:*)",
+      "Bash(npx -y gitnexus@latest analyze --skills)",
+      "Bash(npx -y gitnexus@latest analyze --skills --skip-git)",
+      "Bash(npx -y gitnexus@latest serve)",
+      "Bash(npx -y gitnexus@latest serve --port 4748)",
+      "Bash(npx -y gitnexus@latest query stats)",
+      "Bash(npx -y gitnexus@latest status)",
+      "Bash(npx -y gitnexus@latest status --skip-git)",
+      "Bash(npx -y gitnexus@latest query --help)",
+      "Bash(curl -s http://127.0.0.1:4748/api/mcp -X POST -H \"Content-Type: application/json\" -d '{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"tools/list\",\"params\":{}}')",
+      "Bash(curl -s http://127.0.0.1:4748/api/overview)",
+      "Bash(curl -s http://127.0.0.1:4748/)",
+      "Bash(curl -s http://127.0.0.1:4748/api/repos)",
+      "Bash(curl -s http://127.0.0.1:4748/api/graph)",
+      "Bash(curl -s \"http://127.0.0.1:4748/api/graph?repo=BankProgg\")",
+      "Bash(node -e ':*)"
+    ]
+  }
+}

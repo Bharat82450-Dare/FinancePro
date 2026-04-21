@@ -9,8 +9,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.financeapp.data.database.FinanceDatabase
-import com.financeapp.data.repository.FinanceRepository
+import com.financeapp.data.repository.RepositoryProvider
 import com.financeapp.databinding.FragmentImportTransactionsBinding
 import com.financeapp.viewmodel.ViewModelFactory
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -23,8 +22,7 @@ class ImportTransactionsFragment : BottomSheetDialogFragment() {
     private val binding get() = _binding!!
 
     private val viewModel: ImportTransactionsViewModel by viewModels {
-        val db = FinanceDatabase.getDatabase(requireContext())
-        val repo = FinanceRepository(db.transactionDao(), db.categoryDao(), db.budgetDao(), db.monthlyBudgetTargetDao())
+        val repo = RepositoryProvider.get(requireContext())
         ViewModelFactory(repo)
     }
 

@@ -10,9 +10,8 @@ import androidx.core.app.NotificationCompat
 import com.financeapp.FinanceApplication
 import com.financeapp.MainActivity
 import com.financeapp.R
-import com.financeapp.data.database.FinanceDatabase
 import com.financeapp.data.entities.Transaction
-import com.financeapp.data.repository.FinanceRepository
+import com.financeapp.data.repository.RepositoryProvider
 import com.financeapp.utils.UpiSmsParser
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -34,26 +33,30 @@ class SmsReceiver : BroadcastReceiver() {
 
         grouped.forEach { (sender, bodyBuilder) ->
             val body = bodyBuilder.toString()
-            val parsed = UpiSmsParser.parse(sender, body) ?: return@forEach
 
             CoroutineScope(Dispatchers.IO).launch {
-                val db = FinanceDatabase.getDatabase(context)
-                val repo = FinanceRepository(
-                    db.transactionDao(),
-                    db.categoryDao(),
-                    db.budgetDao(),
-                    db.monthlyBudgetTargetDao()
-                )
-                val transaction = Transaction(
-                    title = parsed.merchant,
-                    amount = parsed.amount,
-                    type = parsed.type,
-                    category = UpiSmsParser.guessCategory(parsed.merchant),
-                    date = parsed.timestamp,
-                    note = "Auto-detected via SMS"
-                )
-                repo.addTransaction(transaction)
-                sendDetectionNotification(context, parsed)
+                val repo = RepositoryProvider.get(context)
+
+                // 1. Parse transaction
+                val parsed = UpiSmsParser.parse(sender, body)
+                if (parsed != null) {
+                    val transaction = Transaction(
+                        title    = parsed.merchant,
+                        amount   = parsed.amount,
+                        type     = parsed.type,
+                        category = UpiSmsParser.guessCategory(parsed.merchant),
+                        date     = parsed.timestamp,
+                        note     = "Auto-detected via SMS"
+                    )
+                    repo.addTransaction(transaction)
+                    sendDetectionNotification(context, parsed)
+                }
+
+                // 2. Parse balance for auto-reconciliation (even without a transaction match)
+                val smsBalance = UpiSmsParser.parseBalance(body)
+                if (smsBalance != null) {
+                    repo.autoReconcileBalance(smsBalance)
+                }
             }
         }
     }

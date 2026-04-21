@@ -44,4 +44,13 @@ interface TransactionDao {
 
     @Query("SELECT COALESCE(SUM(amount), 0.0) FROM transactions WHERE type = 'EXPENSE' AND strftime('%m', date/1000, 'unixepoch') = :month AND strftime('%Y', date/1000, 'unixepoch') = :year")
     fun getTotalExpenseForMonth(month: String, year: String): Flow<Double>
+
+    @Query("SELECT COALESCE(SUM(amount), 0.0) FROM transactions WHERE type = 'INCOME' AND strftime('%m', date/1000, 'unixepoch') = :month AND strftime('%Y', date/1000, 'unixepoch') = :year")
+    fun getTotalIncomeForMonth(month: String, year: String): Flow<Double>
+
+    @Query("SELECT * FROM transactions WHERE date > :sinceTimestamp ORDER BY date ASC")
+    suspend fun getTransactionsSince(sinceTimestamp: Long): List<Transaction>
+
+    @Query("SELECT COALESCE(SUM(CASE WHEN type = 'INCOME' THEN amount ELSE 0 END), 0.0) as income, COALESCE(SUM(CASE WHEN type = 'EXPENSE' THEN amount ELSE 0 END), 0.0) as expense FROM transactions WHERE date BETWEEN :dayStart AND :dayEnd")
+    suspend fun getDailyTotals(dayStart: Long, dayEnd: Long): com.financeapp.data.model.DailyTotals
 }

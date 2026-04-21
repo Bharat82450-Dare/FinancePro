@@ -18,7 +18,9 @@
       "Bash(curl -s http://127.0.0.1:4748/api/repos)",
       "Bash(curl -s http://127.0.0.1:4748/api/graph)",
       "Bash(curl -s \"http://127.0.0.1:4748/api/graph?repo=BankProgg\")",
-      "Bash(node -e ':*)"
+      "Bash(node -e ':*)",
+      "Bash(./gradlew assembleDebug)",
+      "Bash(python3 \"C:/Users/bhara/AppData/Roaming/Claude/local-agent-mode-sessions/skills-plugin/c8d67f06-226c-49aa-ba0e-aaafd3259696/f4f73c28-aa1b-4aba-949b-65072bee38df/skills/ui-ux-pro-max/scripts/search.py\" \"fintech banking personal finance Android app premium dark\" --design-system -p \"BankProgg\")"
     ]
   }
 }

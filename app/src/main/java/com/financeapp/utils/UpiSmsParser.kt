@@ -98,4 +98,10 @@ object UpiSmsParser {
     }
 
     private fun String.containsAny(vararg terms: String) = terms.any { this.contains(it) }
+
+    fun parseBalance(body: String): Double? {
+        val balanceRegex = Regex("""(?:bal(?:ance)?\s*(?:is|:|:-|)?\s*(?:inr|rs\.?|₹)?)\s*([\d,]+(?:\.\d{1,2})?)""", RegexOption.IGNORE_CASE)
+        val match = balanceRegex.find(body) ?: return null
+        return match.groupValues[1].replace(",", "").toDoubleOrNull()
+    }
 }

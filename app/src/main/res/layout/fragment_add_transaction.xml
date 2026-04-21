@@ -9,7 +9,7 @@
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/white"
+        android:background="@color/surface"
         app:elevation="0dp">
 
         <com.google.android.material.appbar.MaterialToolbar
@@ -59,7 +59,7 @@
                 android:id="@+id/amount_divider"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="#EEEEEE"
+                android:background="@color/divider"
                 app:layout_constraintTop_toBottomOf="@+id/amount_edit_text" />
 
             <!-- Transaction Type (Income/Expense) -->
@@ -79,8 +79,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Expense"
-                    android:textColor="#F44336"
-                    app:strokeColor="#F44336" />
+                    android:textColor="@color/expense"
+                    app:strokeColor="@color/expense" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btn_income"
@@ -89,8 +89,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Income"
-                    android:textColor="#4CAF50"
-                    app:strokeColor="#4CAF50" />
+                    android:textColor="@color/income"
+                    app:strokeColor="@color/income" />
             </com.google.android.material.button.MaterialButtonToggleGroup>
 
             <!-- Details Section -->
@@ -156,11 +156,14 @@
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/save_btn"
                 android:layout_width="match_parent"
-                android:layout_height="64dp"
+                android:layout_height="56dp"
                 android:layout_marginTop="32dp"
-                android:text="SAVE TRANSACTION"
-                android:textSize="16sp"
-                app:cornerRadius="12dp"
+                android:text="Save Transaction"
+                android:textSize="15sp"
+                android:textColor="@color/white"
+                android:fontFamily="sans-serif-medium"
+                android:backgroundTint="@color/primary"
+                app:cornerRadius="16dp"
                 app:layout_constraintTop_toBottomOf="@+id/date_picker_btn" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

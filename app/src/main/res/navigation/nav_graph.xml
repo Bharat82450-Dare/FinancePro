@@ -35,4 +35,10 @@
         android:label="Add Transaction"
         tools:layout="@layout/fragment_add_transaction" />
 
+    <fragment
+        android:id="@+id/nav_goals"
+        android:name="com.financeapp.ui.goals.GoalsFragment"
+        android:label="Plan"
+        tools:layout="@layout/fragment_goals" />
+
 </navigation>

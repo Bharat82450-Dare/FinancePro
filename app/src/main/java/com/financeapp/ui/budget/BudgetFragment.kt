@@ -16,8 +16,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.financeapp.budget.BudgetManager
-import com.financeapp.data.database.FinanceDatabase
-import com.financeapp.data.repository.FinanceRepository
+import com.financeapp.data.repository.RepositoryProvider
 import com.financeapp.databinding.DialogAddBudgetBinding
 import com.financeapp.databinding.FragmentBudgetBinding
 import com.financeapp.utils.SessionManager
@@ -32,8 +31,7 @@ class BudgetFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val viewModel: BudgetViewModel by viewModels {
-        val db = FinanceDatabase.getDatabase(requireContext())
-        val repo = FinanceRepository(db.transactionDao(), db.categoryDao(), db.budgetDao(), db.monthlyBudgetTargetDao())
+        val repo = RepositoryProvider.get(requireContext())
         val session = SessionManager(requireContext())
         val budgetManager = BudgetManager(repo, requireContext())
         ViewModelFactory(repo, session, budgetManager)

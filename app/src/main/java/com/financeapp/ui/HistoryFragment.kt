@@ -16,8 +16,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.financeapp.R
-import com.financeapp.data.database.FinanceDatabase
-import com.financeapp.data.repository.FinanceRepository
+import com.financeapp.data.repository.RepositoryProvider
 import com.financeapp.databinding.FragmentHistoryBinding
 import com.financeapp.ui.TransactionAdapter
 import com.financeapp.ui.pdf.ImportTransactionsFragment
@@ -64,13 +63,7 @@ class HistoryFragment : Fragment() {
     }
 
     private fun setupViewModel() {
-        val database = FinanceDatabase.getDatabase(requireContext())
-        val repository = FinanceRepository(
-            database.transactionDao(),
-            database.categoryDao(),
-            database.budgetDao(),
-            database.monthlyBudgetTargetDao()
-        )
+        val repository = RepositoryProvider.get(requireContext())
         val factory = ViewModelFactory(repository)
         viewModel = ViewModelProvider(this, factory)[HistoryViewModel::class.java]
     }

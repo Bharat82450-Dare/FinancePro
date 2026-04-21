@@ -13,6 +13,10 @@
         android:icon="@drawable/ic_budget"
         android:title="Budget" />
     <item
+        android:id="@+id/nav_goals"
+        android:icon="@drawable/ic_target"
+        android:title="Plan" />
+    <item
         android:id="@+id/nav_report"
         android:icon="@drawable/ic_chart"
         android:title="Reports" />

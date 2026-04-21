@@ -10,8 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.financeapp.R
-import com.financeapp.data.database.FinanceDatabase
-import com.financeapp.data.repository.FinanceRepository
+import com.financeapp.data.repository.RepositoryProvider
 import com.financeapp.databinding.FragmentAddTransactionBinding
 import com.financeapp.viewmodel.AddTransactionViewModel
 import com.financeapp.viewmodel.ViewModelFactory
@@ -43,13 +42,7 @@ class AddTransactionFragment : Fragment() {
     }
 
     private fun setupViewModel() {
-        val database = FinanceDatabase.getDatabase(requireContext())
-        val repository = FinanceRepository(
-            database.transactionDao(),
-            database.categoryDao(),
-            database.budgetDao(),
-            database.monthlyBudgetTargetDao()
-        )
+        val repository = RepositoryProvider.get(requireContext())
         val factory = ViewModelFactory(repository)
         viewModel = ViewModelProvider(this, factory)[AddTransactionViewModel::class.java]
     }

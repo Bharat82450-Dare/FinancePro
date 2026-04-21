@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Refined claymorphism card surface -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Base white surface -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/surface" />
+            <corners android:radius="24dp" />
+        </shape>
+    </item>
+    <!-- Subtle border for edge definition -->
+    <item>
+        <shape android:shape="rectangle">
+            <stroke android:width="1dp" android:color="@color/divider" />
+            <corners android:radius="24dp" />
+        </shape>
+    </item>
+    <!-- Inner top-left light highlight (claymorphism bevel) -->
+    <item android:bottom="2dp" android:right="2dp">
+        <shape android:shape="rectangle">
+            <corners android:radius="24dp" />
+            <stroke android:width="1dp" android:color="@color/neo_shadow_light" />
+        </shape>
+    </item>
+    <!-- Inner bottom-right soft shadow -->
+    <item android:top="2dp" android:left="2dp">
+        <shape android:shape="rectangle">
+            <corners android:radius="24dp" />
+            <stroke android:width="1dp" android:color="@color/neo_shadow_dark" />
+        </shape>
+    </item>
+</layer-list>

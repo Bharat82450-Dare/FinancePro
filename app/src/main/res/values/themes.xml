@@ -1,32 +1,149 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
+
+    <!-- ══════════════════════════════════════════════════════
+         Theme.FinancePro — Premium Indigo Finance
+         ══════════════════════════════════════════════════════ -->
     <style name="Theme.FinancePro" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <!-- Primary brand color. -->
+
+        <!-- Brand (30%) -->
         <item name="colorPrimary">@color/primary</item>
         <item name="colorPrimaryVariant">@color/primary_dark</item>
         <item name="colorOnPrimary">@color/white</item>
-        
-        <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/primary_dark</item>
-        <item name="colorSecondaryVariant">@color/primary_dark</item>
+
+        <!-- Accent (10%) -->
+        <item name="colorSecondary">@color/accent</item>
+        <item name="colorSecondaryVariant">@color/accent_dark</item>
         <item name="colorOnSecondary">@color/white</item>
 
-        <!-- Status bar color. -->
-        <item name="android:statusBarColor">@color/primary_dark</item>
-
-        <!-- Surface and Background -->
+        <!-- Background (60%) -->
         <item name="android:windowBackground">@color/background</item>
+        <item name="android:colorBackground">@color/background</item>
         <item name="colorSurface">@color/surface</item>
         <item name="colorOnSurface">@color/text_primary</item>
-        <item name="android:colorBackground">@color/background</item>
         <item name="colorOnBackground">@color/text_primary</item>
+        <item name="colorSurfaceVariant">@color/surface_variant</item>
 
-        <!-- Material 2 color variants for BottomNav -->
-        <item name="colorOnSurfaceVariant" tools:ignore="NewApi">@color/text_secondary</item>
-        
+        <!-- Status bar — matches pearl lavender -->
+        <item name="android:statusBarColor">@color/background</item>
+        <item name="android:windowLightStatusBar">true</item>
+
         <!-- Typography -->
+        <item name="android:fontFamily">sans-serif</item>
         <item name="android:textColorPrimary">@color/text_primary</item>
         <item name="android:textColorSecondary">@color/text_secondary</item>
+        <item name="android:textColorHint">@color/text_hint</item>
+
+        <!-- Material Nav / surface variant -->
+        <item name="colorOnSurfaceVariant" tools:ignore="NewApi">@color/text_secondary</item>
+
+        <!-- Input field accent -->
+        <item name="colorControlActivated">@color/primary</item>
+        <item name="colorControlHighlight">@color/primary_light</item>
+
+        <!-- Card default shape — 20dp radius -->
+        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.FinancePro.MediumComponent</item>
+        <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.FinancePro.LargeComponent</item>
+
+        <!-- MaterialCardView default -->
+        <item name="materialCardViewStyle">@style/Widget.FinancePro.Card</item>
+
+        <!-- TextInputLayout default -->
+        <item name="textInputStyle">@style/Widget.FinancePro.TextInput</item>
     </style>
+
+    <!-- ── Shape appearances ── -->
+    <style name="ShapeAppearance.FinancePro.MediumComponent" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerSize">16dp</item>
+    </style>
+
+    <style name="ShapeAppearance.FinancePro.LargeComponent" parent="ShapeAppearance.MaterialComponents.LargeComponent">
+        <item name="cornerSize">24dp</item>
+    </style>
+
+    <!-- ── MaterialCardView ── -->
+    <style name="Widget.FinancePro.Card" parent="Widget.MaterialComponents.CardView">
+        <item name="cardCornerRadius">20dp</item>
+        <item name="cardElevation">0dp</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="strokeColor">@color/divider</item>
+        <item name="cardBackgroundColor">@color/surface</item>
+    </style>
+
+    <!-- ── Premium Elevated Card (balance, hero cards) ── -->
+    <style name="Widget.FinancePro.Card.Elevated">
+        <item name="cardCornerRadius">24dp</item>
+        <item name="cardElevation">8dp</item>
+        <item name="strokeWidth">0dp</item>
+    </style>
+
+    <!-- ── TextInputLayout ── -->
+    <style name="Widget.FinancePro.TextInput" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxCornerRadiusTopStart">14dp</item>
+        <item name="boxCornerRadiusTopEnd">14dp</item>
+        <item name="boxCornerRadiusBottomStart">14dp</item>
+        <item name="boxCornerRadiusBottomEnd">14dp</item>
+        <item name="boxStrokeColor">@color/divider</item>
+        <item name="boxStrokeWidth">1.5dp</item>
+        <item name="hintTextColor">@color/text_secondary</item>
+    </style>
+
+    <!-- ── Primary filled button ── -->
+    <style name="Widget.FinancePro.Button.Primary" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">@color/primary</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:letterSpacing">0.02</item>
+        <item name="cornerRadius">16dp</item>
+        <item name="android:minHeight">52dp</item>
+        <item name="elevation">2dp</item>
+    </style>
+
+    <!-- ── Text button ── -->
+    <style name="Widget.FinancePro.Button.Text" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:textColor">@color/primary</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <!-- ── FAB (Neomorphic) ── -->
+    <style name="NeoFab" parent="Widget.MaterialComponents.FloatingActionButton">
+        <item name="backgroundTint">@color/primary</item>
+        <item name="tint">@color/white</item>
+        <item name="elevation">10dp</item>
+    </style>
+
+    <!-- ── Extended FAB ── -->
+    <style name="Widget.FinancePro.ExtendedFab" parent="Widget.MaterialComponents.ExtendedFloatingActionButton">
+        <item name="backgroundTint">@color/primary</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="iconTint">@color/white</item>
+        <item name="elevation">8dp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <!-- ── Filter Chip ── -->
+    <style name="PillChip" parent="Widget.MaterialComponents.Chip.Filter">
+        <item name="chipCornerRadius">50dp</item>
+        <item name="chipBackgroundColor">@color/chip_state_bg</item>
+        <item name="chipStrokeColor">@color/divider</item>
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="android:textColor">@color/chip_state_text</item>
+        <item name="checkedIconVisible">false</item>
+        <item name="chipMinHeight">36dp</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <!-- ── Bottom Navigation ── -->
+    <style name="Widget.FinancePro.BottomNav" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="android:background">@color/surface</item>
+        <item name="itemIconTint">@color/nav_tint_hardened</item>
+        <item name="itemTextColor">@color/nav_tint_hardened</item>
+        <item name="labelVisibilityMode">labeled</item>
+        <item name="itemRippleColor">@color/navigation_ripple</item>
+        <item name="elevation">12dp</item>
+    </style>
+
 </resources>

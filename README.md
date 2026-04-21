@@ -1,6 +1,6 @@
-# BankProgg 🚀
+# FinancePro 🚀
 
-**BankProgg** is a powerful Android-based personal finance management application designed to give you total control over your financial life. It leverages intelligent SMS parsing to automatically track expenses, provides real-time budgeting tools, and generates comprehensive financial reports.
+**FinancePro** is a powerful Android-based personal finance management application designed to give you total control over your financial life. It leverages intelligent SMS parsing to automatically track expenses, provides real-time budgeting tools, and generates comprehensive financial reports.
 
 ---
 

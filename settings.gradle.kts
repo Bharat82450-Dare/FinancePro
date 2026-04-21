@@ -20,6 +20,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "BankProgg"
+rootProject.name = "FinancePro"
 include(":app")
  
